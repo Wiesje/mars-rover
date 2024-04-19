@@ -1,0 +1,13 @@
+{
+    "deno.enable": true,
+    "deno.lint": true,
+    "[typescript]": {
+      "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "typescript.tsserver.experimental.enableProjectDiagnostics": false,
+  "workbench.colorCustomizations": {
+    "editorError.foreground":   "#00000000",
+    "editorWarning.foreground": "#00000000",
+    "editorInfo.foreground":    "#00000000"
+}
+}

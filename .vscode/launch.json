@@ -1,0 +1,38 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "request": "launch",
+            "name": "Run Program",
+            "type": "node",
+            "program": "${workspaceFolder}/main.ts",
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "C:\\Users\\WiesjeHeerik\\.deno\\bin\\deno.EXE",
+            "runtimeArgs": [
+                "run",
+                "--inspect-wait",
+                "--allow-all"
+            ],
+            "attachSimplePort": 9229,
+            "console": "externalTerminal"
+        },
+        {
+            "request": "launch",
+            "name": "Run Tests",
+            "type": "node",
+            "program": "${workspaceFolder}/robotMovements.test.ts",
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "C:\\Users\\WiesjeHeerik\\.deno\\bin\\deno.EXE",
+            "runtimeArgs": [
+                "test",
+                "--inspect-wait",
+                "--allow-all"
+            ],
+            "attachSimplePort": 9229,
+            "console": "externalTerminal"
+        }
+    ]
+}
