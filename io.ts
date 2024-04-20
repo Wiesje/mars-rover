@@ -1,30 +1,31 @@
-import { Grid, Robot } from "./types.ts";
+import { Direction, Grid, Robot } from "./types.ts";
 
-function readInput(
+// Reads the input from a file.
+// Could add more validation e.g. maxX and maxY should be positive integers, direction string should be a valid Direction.
+async function readInput(
   inputFilePath: string,
 ): Promise<{ grid: Grid; robots: Robot[] }> {
-  return Deno.readTextFile(inputFilePath)
-    .then((data) => {
-      const lines = data.split("\n");
-      const [maxX, maxY] = lines[0].split(" ").map(Number);
-      const grid: Grid = { maxX, maxY };
+  const data = await Deno.readTextFile(inputFilePath);
 
-      const robots: Robot[] = [];
-      lines.slice(1).forEach((line) => {
-        const [position, commandSequence] = line.split(") ");
-        const [x, y, direction] = position.substring(1).split(", ");
-        const robot: Robot = {
-          x: parseInt(x),
-          y: parseInt(y),
-          direction,
-          commands: commandSequence,
-          isLost: false,
-        };
-        robots.push(robot);
-      });
+  const lines = data.split("\n");
+  const [maxX, maxY] = lines[0].split(" ").map(Number);
+  const grid: Grid = { maxX, maxY };
 
-      return { grid, robots };
-    });
+  const robots: Robot[] = [];
+  lines.slice(1).forEach((line) => {
+    const [position, commandSequence] = line.split(") ");
+    const [x, y, direction] = position.substring(1).split(", ");
+    const robot: Robot = {
+      x: parseInt(x),
+      y: parseInt(y),
+      direction: direction as Direction,
+      commands: commandSequence,
+      isLost: false,
+    };
+    robots.push(robot);
+  });
+
+  return { grid, robots };
 }
 
 function formatOutput(robot: Robot): string {

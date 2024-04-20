@@ -5,7 +5,7 @@ function moveRobots(grid: Grid, robots: Robot[]): Robot[] {
     for (const command of robot.commands) {
       switch (command) {
         case "F":
-          moveForward(robot);
+          move(robot);
           break;
         case "L":
           rotate(robot, -1);
@@ -22,7 +22,7 @@ function moveRobots(grid: Grid, robots: Robot[]): Robot[] {
         robot.y < 0
       ) {
         robot.isLost = true;
-        moveForward(robot, -1);
+        move(robot, -1);
         break;
       }
     }
@@ -30,7 +30,7 @@ function moveRobots(grid: Grid, robots: Robot[]): Robot[] {
   return robots;
 }
 
-function moveForward(robot: Robot, stepSize: number = 1) {
+function move(robot: Robot, stepSize: number = 1) {
   switch (robot.direction) {
     case "N":
       robot.y += stepSize;

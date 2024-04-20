@@ -3,7 +3,7 @@ import { Grid, Robot } from "./types.ts";
 import { moveRobots } from "./robotMovements.ts";
 
 const testGrid: Grid = { maxX: 1, maxY: 1 };
-const largeTestGrid = { maxX: 4, maxY: 8 };
+const largeTestGrid: Grid = { maxX: 4, maxY: 8 };
 
 Deno.test({
   name: "Robot can rotate clockwise",
